@@ -1,38 +1,359 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+  --primary-color: #521733;
+  --secondary-color: #fff;
+  /* --secondary-color: #74455b; */
+  --third-color: #632e47;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+  min-height: 100vh;
+  padding-top: 15px;
+  padding-bottom: 70px;
+  margin: 20px;
+  margin-top: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.main_title {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  font-family: "Playfair Display", serif;
+  font-size: 2vw;
+  padding: 4px;
+  border-radius: 50px;
+}
+
+
+/* Naglowek */
+
+.header_container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 90px;
+  background-color: var(--primary-color);
+}
+
+.inner_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  padding-top: 20px;
+}
+
+header a {
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: "Playfair Display", serif;
+}
+
+header a:hover {
+  opacity: 0.7;
+}
+
+.page_name a {
+  font-weight: 700;
+  font-size: 2.3rem;
+}
+
+.pages_links {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.search_icon {
+  display: inline-block;
+}
+
+.pages_links li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.pages_links li:last-child {
+  margin-right: 0;
+}
+
+/* Karty filmów */
+.media {
+  display: flex;
+  flex-direction: column; /* sprawia ze plakat, tytul, data są pod sobą */
+  width: 200px;
+  padding: 5px; /* przestrzen miedzy plakatem a calym prostokatem */
+  margin: 15px; /* przestrzen miedzy dwoma prostokatami */
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  position: relative;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  border: 3px solid var(--primary-color);
+}
+
+.media_two {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 0;
+  margin: 5px 0;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  position: relative;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  /* border: 2px solid var(--primary-color); */
+} 
+
+@media (max-width: 550px) {
+  .media .media_two{
+    width:46%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@media (max-width: 550px) {
+  .poster{
+    width:215%;
+  }
+}
+
+.poster {
+  border-radius: 10px;
+}
+
+.poster:hover {
+  cursor: pointer;
+  opacity: 50%;
+  border: 2px solid var(--primary-color);
+}
+
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 8px 0;
+  /* color: white; */
+}
+
+.vote_date_div {
+  margin-left: 7px;
+  margin-bottom: 5px;
+  margin-top: auto;
+}
+
+.subTitle {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  padding-bottom: 3px;
+  padding: 0 2px;
+  /* color: white; */
+  margin-bottom: 5px;
+}
+
+.btn-div {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.btn {
+  bottom: 0;
+  background-color: var(--third-color);
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  border: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  line-height: 1.1;
+  margin-bottom: 5px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  opacity: 1;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+
+/* Strona szukaj */
+
+/* ustawienie filmów */
+.movies_container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  justify-content: center;
+  display: flex;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+}
+
+@media (max-width: 1000px) {
+  .main_title{
+    font-size: 6.4vw;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.not_found_text {
+  font-size: 30px;
+  color: #282c34;
+  padding-left: 30px;
+  font-family: "Playfair Display", serif;
+}
+
+@media (max-width: 1000px) {
+  .not_found_text{
+    font-size: 4vw;
   }
+}
+
+.search {
+  display: flex;
+  margin: 15px 0;
+}
+
+
+/* karty filmow w bibliotece */
+
+.karta-film-bib {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 5px; 
+  margin: 10px; 
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  position: relative;
+  font-family: "Playfair Display", serif;
+  font-weight: 100;
+  border: 3px solid var(--primary-color);
+}
+
+.kontrolki_div {
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 5px;
+  margin-top: auto;
+  text-align: center;
+  display: inline-flex;
+}
+
+.tooltip_ikonka {
+  width: 50px;
+  margin: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
+  width: 50%;
+}
+
+.tooltip {
+  height: 40px;
+  width: 100px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kontrolki_div .tooltip_ikonka span i {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+ .tooltip {
+  color: #fff;
+  position: absolute;
+  top: 0px;
+  background: var(--third-color);
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 15px;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265,1.55);
+}
+
+.kontrolki_div .tooltip_ikonka:hover .tooltip {
+  top: -70px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+ .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 15px;
+  width: 15px;
+  background: var(--third-color);
+  bottom: -8px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+}
+
+.kontrolki-btn {
+  color: var(--primary-color);
+  background-color: transparent;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.kontrolki-btn:hover {
+  color: gray;
+  cursor: pointer;
+}
+
+.rating-stars {
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  margin-top: auto;
+  text-align: center;
+}
+
+
+/* strona główna */
+
+.main_page {
+  text-align: center;
+  display: flex;
+}
+
+.movies_box {
+display: inline-block;
+}
+
+.movie_categories_div {
+  display: inline-block;
+  color: white;
+  margin-right: 10px;
 }

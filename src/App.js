@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Naglowek} from "./components/glowneStrony/Naglowek";
+import {Biblioteka} from "./components/glowneStrony/Biblioteka";
+import {Szukaj} from "./components/glowneStrony/Szukaj";
+import {Glowna} from "./components/glowneStrony/Glowna";
+import { GlobalProvider } from './components/Context/GlobalState';
+
 import './App.css';
+import "./components/lib/font-awesome/css/all.min.css";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <GlobalProvider>
+      <Router>
+        <Naglowek/>
+        <div className='app'>
+          <Routes> 
+            <Route path="/" element={<Glowna/>} />
+            <Route path='/biblioteka' element={<Biblioteka/>} />
+            <Route path="/szukaj" element={<Szukaj />} />
+          </Routes>
+        
+        </div>
+      </Router>
+    </GlobalProvider>
   );
 }
 
